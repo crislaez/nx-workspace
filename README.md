@@ -88,3 +88,35 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+## Prueba
+
+**para otro proyecto
+//ejecutar -> nx serve front-public
+
+
+1- npx create-nx-workspace nombrProyecto
+2- empty
+3- nx cli por ejemplo
+4- no por ejemplo
+
+// instalamos angular con
+5- npm add -D@nrw/angular
+
+//instalamos nx cli de forma GLOBAL
+6- npm install -g @nrwl/cli
+
+//instalamos @ en el proyecto
+7- npm install @nrwl/angular
+8- npm install @nrwl/schematics
+
+//creamos un projecto  y si queremos crear otro hacemos lo mismo
+10- nx generate @nrwl/angular:app
+11- si css
+12- si
+
+//crear el backend con express 
+13- npm install --save @nrwl/express    o  npm install --save-dev @nrwl/express o  npm install @nrwl/express
+
+//crear el backend
+14- nx generate @nrwl/express:app back-express
