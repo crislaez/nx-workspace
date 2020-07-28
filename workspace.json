@@ -1,0 +1,369 @@
+{
+  "version": 1,
+  "projects": {
+    "front-public": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/front-public",
+      "sourceRoot": "apps/front-public/src",
+      "prefix": "pruevanx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/front-public",
+            "index": "apps/front-public/src/index.html",
+            "main": "apps/front-public/src/main.ts",
+            "polyfills": "apps/front-public/src/polyfills.ts",
+            "tsConfig": "apps/front-public/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/front-public/src/favicon.ico",
+              "apps/front-public/src/assets"
+            ],
+            "styles": ["apps/front-public/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/front-public/src/environments/environment.ts",
+                  "with": "apps/front-public/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "front-public:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "front-public:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "front-public:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/front-public/tsconfig.app.json",
+              "apps/front-public/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/front-public/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/front-public/jest.config.js",
+            "tsConfig": "apps/front-public/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/front-public/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "front-public-e2e": {
+      "root": "apps/front-public-e2e",
+      "sourceRoot": "apps/front-public-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/front-public-e2e/cypress.json",
+            "tsConfig": "apps/front-public-e2e/tsconfig.e2e.json",
+            "devServerTarget": "front-public:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "front-public:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/front-public-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/front-public-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "front-admin": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/front-admin",
+      "sourceRoot": "apps/front-admin/src",
+      "prefix": "pruevanx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/front-admin",
+            "index": "apps/front-admin/src/index.html",
+            "main": "apps/front-admin/src/main.ts",
+            "polyfills": "apps/front-admin/src/polyfills.ts",
+            "tsConfig": "apps/front-admin/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/front-admin/src/favicon.ico",
+              "apps/front-admin/src/assets"
+            ],
+            "styles": ["apps/front-admin/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/front-admin/src/environments/environment.ts",
+                  "with": "apps/front-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "front-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "front-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "front-admin:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/front-admin/tsconfig.app.json",
+              "apps/front-admin/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/front-admin/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/front-admin/jest.config.js",
+            "tsConfig": "apps/front-admin/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/front-admin/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "front-admin-e2e": {
+      "root": "apps/front-admin-e2e",
+      "sourceRoot": "apps/front-admin-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/front-admin-e2e/cypress.json",
+            "tsConfig": "apps/front-admin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "front-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "front-admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/front-admin-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/front-admin-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "back-express": {
+      "root": "apps/back-express",
+      "sourceRoot": "apps/back-express/src",
+      "projectType": "application",
+      "prefix": "back-express",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/back-express",
+            "main": "apps/back-express/src/main.ts",
+            "tsConfig": "apps/back-express/tsconfig.app.json",
+            "assets": ["apps/back-express/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/back-express/src/environments/environment.ts",
+                  "with": "apps/back-express/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "back-express:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/back-express/tsconfig.app.json",
+              "apps/back-express/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/back-express/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/back-express/jest.config.js",
+            "tsConfig": "apps/back-express/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "front-public"
+}

@@ -1,0 +1,43 @@
+{
+  "npmScope": "pruevanx",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "front-public": {
+      "tags": []
+    },
+    "front-public-e2e": {
+      "tags": [],
+      "implicitDependencies": ["front-public"]
+    },
+    "front-admin": {
+      "tags": []
+    },
+    "front-admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["front-admin"]
+    },
+    "back-express": {
+      "tags": []
+    }
+  }
+}
