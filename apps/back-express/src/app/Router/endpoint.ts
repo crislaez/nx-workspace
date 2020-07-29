@@ -1,10 +1,16 @@
 
-function endPoint(router){
+// import {} from 'connect-multipart';
 
-  router.post('/prueba',(req:any, res:any) => {
-    req.send(200).jsop({success:true, data:res});
+
+export function endPoint(router){
+
+  router.get('/saludo',(req, res) => {
+    res.status(200).json({success:true, message:`Hola, bienvenido`})
+  });
+
+  router.post('/prueba',(req, res) => {
+    res.send(200).json({success:true, data:res});
   });
 
 }
 
-module.exports = endPoint;
